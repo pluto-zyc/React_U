@@ -1,0 +1,27 @@
+.Index{}
+.Index footer{
+    height: 1.1rem;
+    width: 100vw;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    text-align: center;
+   padding: 0 .1rem;
+  } 
+.Index footer div {
+    flex: 1;
+}
+.Index footer div img{
+    width: .4rem;
+    height: .4rem;
+}
+.Index footer a{
+    font-size: .32rem;
+    display: block;
+    text-decoration: none;
+    color: #000000;
+}
+.select{
+    color: #ff9900!important;
+}

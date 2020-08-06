@@ -1,0 +1,18 @@
+.Info{}
+.Info .top ul{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.Info .top li{}
+.Info .top li p{}
+.Info .top li p img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.Info .top li span{
+    font-size: .3rem;
+}
+.selects{
+  background-color:'#ff9900';
+}
