@@ -14,6 +14,9 @@ import shop_nor from '../../assets/img/tab_shopping_nor.png'
 import {NavLink,Switch, Route,Redirect} from 'react-router-dom'
 // 底部导航组件
 import Home from '../Home/Home'
+import Cate from '../Cate/Cate'
+import Shop from '../Shop/Shop'
+import Mine from '../Mine/Mine'
 
 export default class index extends Component {
     select(e,index) {
@@ -24,6 +27,9 @@ export default class index extends Component {
             <div className='Index'>
                 <Switch>
                     <Route path='/index/home' component={Home}></Route>
+                    <Route path='/index/cate' component={Cate}></Route>
+                    <Route path='/index/shop' component={Shop}></Route>
+                    <Route path='/index/mine' component={Mine}></Route>
                 </Switch>
                 <footer>
                     <div onClick={(e)=>this.select(e,index)}>

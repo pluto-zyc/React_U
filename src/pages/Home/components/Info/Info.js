@@ -1,30 +1,38 @@
 import React from 'react'
 import sale_pic from '../../../../assets/img/1.jpg'
 import './Info.css'
-import { Button} from 'antd-mobile';
-export default function Info() {
+import { Button } from 'antd-mobile';
+import jifen from '../../../../assets/img/jifen.png'
+// 过滤
+import {filterPrice} from '../../../../filters/Filters'
+import {Link} from 'react-router-dom' 
+export default function Info(props) {
     const arr = [
         {
             id: 1,
             title: '限时抢购',
-            src:sale_pic
+            src: sale_pic
         },
         {
             id: 2,
             title: '积分商城',
-            src:sale_pic
+            src: sale_pic
         },
         {
             id: 3,
             title: '联系我们',
-            src:sale_pic
+            src: sale_pic
         },
         {
             id: 4,
             title: '商品分类',
-            src:sale_pic
+            src: sale_pic
         },
     ]
+    const toDetail=()=>{
+        console.log(props);
+    }
+    
     return (
         <div className="Info">
             <div className="top">
@@ -41,19 +49,30 @@ export default function Info() {
                 </ul>
             </div>
             <div className="bot">
-                <ul>
-                    <li>
-                        <a href="">
-                            <img src="" alt=""/>
-                        </a>
-                        <div className="bot_bot">
-                            <h4>肥死顿山地自相车</h4>
-                            <span>￥399.00</span>
-                            <Button type="primary">立即抢购</Button>
-                        </div>
-                    </li>
-                </ul>
+                {
+                   props.goods.map((item) => {
+                        return (
+                            <Link to={"/indexDetail/:"+item.id} className="ul" key={item.id}>
+                                <li>
+                                    <b>
+                                        <img src={item.img} alt="" />
+                                    </b>
+                                    <div className="bot_bot">
+                                        <h4>{item.goodsname}</h4>
+                                        <span className='price'>{filterPrice(item.price)}</span>
+                                        <Button onClick={toDetail.bind(this)}  className='button' type="primary">立即抢购</Button>
+                                    </div>
+                                </li>
+                    </Link> 
+                        )
+                    })  
+                }
+                {/* <button onClick={change.bind(this)}>annou </button> */}
             </div>
         </div>
     )
 }
+
+
+
+

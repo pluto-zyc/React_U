@@ -1,0 +1,37 @@
+.Del{
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.Del .info{
+    padding-top: .26rem;
+    background-color: #fff;
+    width: 6rem;
+    height: 2.8rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: .38rem;
+}
+.Del .info p{
+    text-align: center;
+    width: 100%;
+    font-size: .38rem;
+    line-height: 1.7rem;
+}
+.Del .info  .span{
+    display: flex;
+    justify-content: space-around;
+}
+.Del .info span:first-child{
+    font-size: .36rem;
+}
+.Del .info span:last-child{
+    font-size: .36rem;
+    color: lightblue;
+}

@@ -1,0 +1,117 @@
+.Shop{
+    overflow: hidden;
+}
+.Shop .top{
+    padding: .2rem .2rem;
+}
+.Shop .top img{
+    width: .3rem;
+    height: .3rem;
+}
+.Shop .top span{
+    color: rgb(149, 145, 145);
+    font-size: .34rem;
+    line-height: .7rem;
+    margin-left: .2rem;
+}
+
+.Shop .section{
+    display:  flex;
+    align-items: center;
+    padding: .2rem;
+}
+.Shop .section .left{
+    display: flex;
+    align-items: center;
+}
+.Shop .section .left input{
+    margin-right: .1rem;
+}
+.Shop .section .left img{
+    width: 2rem;
+    height: 2rem;
+    margin-right:.1rem ;
+}
+
+.Shop .section .center{
+    margin-left: .1rem;
+    
+}
+.Shop .section .center h4{
+    font-size: .36rem;
+    font-weight: normal;
+}
+.Shop .section .center .button{
+    width: 2.6rem;
+}
+.Shop .section .center .button span{
+    display: inline-block;
+    border: .01rem solid rgb(88, 83, 83);
+    padding: .02rem .15rem;
+    margin: .1rem .1rem;
+}
+.Shop .section .center b{
+    font-size: .34rem;
+    font-weight: normal;
+    font-family: '微软雅黑';
+
+}
+
+.Shop .section .right {
+    font-size: .34rem;
+}
+.Shop .wrap{
+    width: 7.9rem;
+    
+}
+.Shop .wrap .del{
+    background-color: #f90;
+    line-height: .9rem;
+    color: #fff;
+    padding: 0 .3rem;
+   margin-left: .45rem;
+}
+.Shop .move{
+    margin-left: -1rem;
+}
+
+
+/* bottom结算部分
+ */
+ .Shop .bottom{
+     width: 100vw;
+     position: fixed;
+     bottom: 1.1rem;
+     left: 0;
+     display: flex;
+     align-items: center;
+     background-color: #fff;
+     padding: 0 .2rem;
+ }
+ .Shop .bottom div span{
+    font-size: .36rem;
+    padding: .1rem;
+ }
+ .Shop .bottom div {
+     display: flex;
+     flex-direction: column;
+     font-size: .36rem;
+     text-align: center;
+     /* justify-content: center; */
+     align-items: center;
+     margin-left: .3rem;
+ }
+ .Shop .bottom .all{}
+ .Shop .bottom .all input{}
+ .Shop .bottom .update{}
+ .Shop .bottom .update input{}
+ .Shop .bottom .update input{}
+ .Shop .bottom .num {}
+ .Shop .bottom .sum {
+     padding-top: .4rem;
+     background-color: #f90;
+     color: #fff;
+     height: .8rem;
+     width: 2rem;
+     font-size: .4rem;
+ }

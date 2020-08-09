@@ -1,0 +1,39 @@
+.CateDetail{}
+.CateDetail .section{
+    padding: .2rem;
+}
+.CateDetail .section ul{}
+.CateDetail .section ul li{
+    display: flex;
+    align-items: center;
+    margin-bottom: .2rem;
+}
+.CateDetail .section ul li .left{}
+.CateDetail .section ul li .left img{
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+
+.CateDetail .section ul li .right{
+    padding-left: .2rem;
+  
+}
+.CateDetail .section ul li .right h3{
+    line-height: .4rem;
+    font-weight:500;
+
+}
+.CateDetail .section ul li .right b{
+    font-weight: normal;
+    color: red;
+    display: block;
+    padding: .3rem;
+}
+.CateDetail .section ul li .right span{
+     background-color: #f90;
+     color: #fff;
+     padding: .2rem;
+     font-size: .36rem;
+     border-radius: .2rem;
+}

@@ -1,0 +1,62 @@
+.indexDetail{
+    overflow: hidden;
+}
+
+.indexDetail .pic{}
+.indexDetail .pic img{
+    width: 100vw;
+    height: 4rem;
+}
+.indexDetail .section{
+    padding: .2rem ;
+    background-color: #fff;
+    padding-bottom: .2rem;
+}
+.indexDetail .section .title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.indexDetail .section .title h4{
+    font-weight: normal;
+    font-size: .4rem;
+    /* line-height: .4rem; */
+}
+.indexDetail .section .title span {
+     text-align: center;
+    
+}
+.indexDetail .section .title span img{
+    display: block;
+    width: .3rem;
+    height: .3rem;
+    margin-left: .11rem;
+}
+.indexDetail .section .title span b{
+   font-weight: normal;
+   font-size: .3rem;
+   color: red;
+   font-weight: normal;
+}
+.indexDetail .section .newPrice b{
+    font-weight: normal;
+    color: red;
+    font-size: .34rem;
+}
+.indexDetail .section .newPrice span{
+    font-size: .34rem;
+    border: 1px solid orange;
+    padding: .1rem;
+    margin: .2rem .1rem;
+    display: inline-block;
+    color: orange;
+}
+.indexDetail .section .oldPrice{
+    font-size: .34rem;
+    text-decoration: line-through;
+}
+
+.indexDetail  .banner_pic{
+    margin-top: .3rem;
+}

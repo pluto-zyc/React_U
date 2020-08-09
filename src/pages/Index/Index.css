@@ -1,5 +1,7 @@
 .Index{}
 .Index footer{
+    
+    background-color: #fff;
     height: 1.1rem;
     width: 100vw;
     position: fixed;
@@ -10,6 +12,7 @@
    padding: 0 .1rem;
   } 
 .Index footer div {
+    padding-top: .2rem;
     flex: 1;
 }
 .Index footer div img{

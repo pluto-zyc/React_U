@@ -16,3 +16,31 @@
 .selects{
   background-color:'#ff9900';
 }
+.Info .bot{
+    padding: .3rem;
+}
+.Info .bot .ul{}
+.Info .bot .ul li{
+    display: flex;
+}
+.Info .bot .ul li b{
+    display: inline-block;
+    padding-right: .2rem;
+}
+.Info .bot .ul li b img{
+    width: 2.3rem;
+    height: 2.3rem;
+}
+.Info .bot .bot_bot{}
+.Info .bot .bot_bot h4{
+    font-weight: 500;
+}
+.Info .bot .bot_bot .price{
+    color: red;
+    display: block;
+    padding: .2rem 0;
+    padding-right: .8rem;
+}
+.Info .bot .bot_bot .button{
+    padding: 0 .2rem;
+}

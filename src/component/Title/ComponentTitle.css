@@ -1,13 +1,19 @@
-.Title{
+.ComponentTitle{
     width: 100vw;
-    height: .5rem;
+    height: .8rem;
     background: #ff9900;
     color: #fff;
+    display: flex;
+    justify-content: stretch;
+
 }
-.Title span{
-    line-height: .3rem;
+.ComponentTitle span{
+    line-height: .8rem;
+    margin-left: .2rem;
 }
-.Title b{
-    line-height: .3rem;
+.ComponentTitle b{
+    font-weight: normal;
+    line-height: .8rem;
+    margin-left: 2.2rem;
 }
 
