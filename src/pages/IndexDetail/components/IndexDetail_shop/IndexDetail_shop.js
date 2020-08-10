@@ -1,7 +1,11 @@
 import React from 'react'
 import './IndexDetail_shop.css'
+import { Route } from 'react-router-dom';
 export default function IndexDetail_shop(props) {
+
    const shop =  props.shop
+   const specsattr = JSON.parse(shop.specsattr)
+   
     return (
         <div className="IndexDetail_shop">
             <div className="top"></div>
@@ -13,11 +17,22 @@ export default function IndexDetail_shop(props) {
                  
                  </div>
                 <div className="bot_bot">
-                    <h3>美妆容量</h3>
+                    {
+                        shop?(
+                        <h3>{shop.specsname}</h3>
+                        ):null
+                    }
                    <div className='span'>
-                   <span>15L</span>
-                    <span>15L</span>
-                    <span>15L</span>
+                       {
+                           shop?(
+                            specsattr.map((item)=>{
+                        return(
+                            <span key={item}>{item}</span>
+                            )
+                            })
+                           ):null
+                       }
+                  
                    </div>
                     <div className="p" onClick={props.changeShow.bind(this)}>加入购物车</div>
                 </div>

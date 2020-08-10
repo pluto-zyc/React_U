@@ -1,7 +1,7 @@
 import React from 'react'
 import sale_pic from '../../../../assets/img/1.jpg'
 import './Info.css'
-import { Button } from 'antd-mobile';
+// import { Button } from 'antd-mobile';
 import jifen from '../../../../assets/img/jifen.png'
 // 过滤
 import {filterPrice} from '../../../../filters/Filters'
@@ -60,7 +60,7 @@ export default function Info(props) {
                                     <div className="bot_bot">
                                         <h4>{item.goodsname}</h4>
                                         <span className='price'>{filterPrice(item.price)}</span>
-                                        <Button onClick={toDetail.bind(this)}  className='button' type="primary">立即抢购</Button>
+                                        <div className='buyNow'>立即抢购</div>
                                     </div>
                                 </li>
                     </Link> 

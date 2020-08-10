@@ -41,6 +41,14 @@
     padding: .2rem 0;
     padding-right: .8rem;
 }
-.Info .bot .bot_bot .button{
+.Info .bot .bot_bot .buyNow{
+    background-color: #f90;
+    color: #fff;
+    border-radius: .2rem;
+    text-align: center;
+    line-height: .8rem;
+    width: 2rem;
+}
+.Info .bot .bot_bot  .button{
     padding: 0 .2rem;
 }

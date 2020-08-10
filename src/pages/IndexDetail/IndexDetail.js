@@ -9,6 +9,7 @@ import IndexDetail_shop from './components/IndexDetail_shop/IndexDetail_shop'
 import Alert from '../../util/Alert'
 import {changeShopsAction,shops} from '../../store/index'
 import {connect} from "react-redux"
+import {requestShopAdd}  from '../../util/request'
  class IndexDetail extends Component {
     constructor(){
         super()
@@ -35,7 +36,18 @@ import {connect} from "react-redux"
             showAlert:true
            })
         //    添加商品到购物车
-           this.props.requestShop(this.state.IndexDetail)
+        const uid = sessionStorage.getItem('uid')
+        const goodsid = this.state.IndexDetail[0].id
+        const num = 1
+        const id = {
+            uid,
+            num,
+            goodsid
+        }
+        requestShopAdd(id).then((res)=>{
+            
+        })
+        // 两秒消失
            this.state.timer = setTimeout(()=>{
             this.setState({
                 showAlert:false
@@ -135,8 +147,4 @@ export default connect((state)=>{
     return  {
         shops:shops(state)
             }
-    },(dispatch)=>{
-    return {
-        requestShop:(arr)=>dispatch(changeShopsAction(arr))
-           }
-})(IndexDetail)
+    })(IndexDetail)

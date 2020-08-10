@@ -1,0 +1,100 @@
+.Mine{}
+.Mine .top{
+    display: flex;
+    align-items: center;
+    line-height: .9rem;
+    background-color: #f90;
+    justify-content: space-between;
+    padding: .2rem .4rem;
+    padding-bottom: 2rem;
+    color: #fff;
+}
+.Mine .mines{
+    padding-left: .4rem;
+    /* background-color: #fff; */
+}
+.Mine .mines .my_pic{
+    text-align: center;
+    margin-top: -1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Mine .mines .my_pic .touxiang{
+    width:2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: .2rem;
+   
+    
+}
+.Mine .mines .my_pic .touxiang img{
+    width: 3rem;
+    height: 3rem;
+   
+}
+/* 我的收藏 */
+.Mine .mines .my_shoucang{
+    display: flex;
+    padding-top: .4rem;
+   
+}
+.Mine .mines .my_shoucang img{
+    width: .4rem;
+    height: .4rem;
+    margin-right: .3rem;
+    font-size: .4rem;  
+}
+.Mine .mines .my_shoucang  h3{
+    font-size: .37rem;
+}
+/* 我的订单 */
+.Mine .mine_list{
+   background-color: #fff;
+    display: flex;
+    margin-top: .4rem;
+    justify-content: space-around;
+    line-height: 1.2rem;
+    border-bottom: 1px solid black;
+}
+.Mine .mine_list span{
+    font-size: .37rem;
+}
+.Mine .mine_list b{
+    font-weight: normal;
+    color: rgb(109, 107, 107);
+    font-size: .37rem;
+}
+/* 代发货 */
+.Mine .fahuo {
+    display: flex;
+    background: #fff;
+    padding:.4rem .2rem;
+}
+.Mine .fahuo li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ padding: 0 .2rem;
+    
+}
+.Mine .fahuo li img{
+    width: .5rem;
+    height: .46rem;
+}
+.Mine .fahuo li span{
+    line-height: .6rem;
+    padding-top: .2rem;
+    font-size: .3rem;
+    color: rgb(136, 134, 134);
+}
+.Mine .address{
+    margin-top: .2rem;
+    font-size: .36rem;
+    color:  rgb(138, 136, 136);
+    /* line-height: 1.3rem; */
+    background-color: #fff;
+    padding: .4rem;
+}
+

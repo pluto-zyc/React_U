@@ -1,0 +1,57 @@
+.Login{
+    
+}
+.Login .top{
+    width: 100vw;
+    height: .8rem;
+    background-color: #f90;
+    line-height: .8rem;
+    color: #fff;
+  
+}
+.Login .top span{
+    margin-left: 3.2rem;
+}
+.Login .top b{
+    font-weight: normal;
+    margin-left: 2.2rem;
+}
+.Login .info{
+    padding:2.5rem .5rem  .5rem  .5rem;
+}
+.Login .info input{
+    border: none;
+    background-color: none;
+    border-bottom: 1px solid #eee;
+  height: .7rem;
+  border-radius: .2rem;
+}
+.Login .info .text{
+    margin-bottom: 1rem;
+}
+.Login .info .pass{}
+.Login .info input:nth-child(1){
+   
+}
+.Login .info input:nth-child(2){}
+.Login .info .miss_pass{
+    overflow: hidden;
+    
+}
+.Login .info a{
+    color: rgb(128, 127, 127);
+    float: right;
+    font-size: .34rem;
+    line-height: .8rem;
+    padding-top: .2rem;
+}
+.Login .info button{
+    background-color: #f90;
+    width: 70%;
+    height: .9rem;
+    color: #fff;
+    margin-left: 1rem;
+    margin-top: .4rem;
+    border: none;
+    border-radius: .2rem;
+}
