@@ -9,7 +9,9 @@ function ComponentTitle(props) {
     }
         return (
             <div className='ComponentTitle'>
-                <span onClick={goBack.bind(this)}>返回</span>
+            {
+                props.back?<span onClick={goBack.bind(this)}>返回</span>:null
+            }
                 {
                     props?(
                         <b>{props.title}</b>

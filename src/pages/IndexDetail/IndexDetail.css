@@ -1,5 +1,6 @@
 .indexDetail{
     overflow: hidden;
+    padding-top: .8rem;
 }
 
 .indexDetail .pic{}
@@ -11,6 +12,7 @@
     padding: .2rem ;
     background-color: #fff;
     padding-bottom: .2rem;
+    
 }
 .indexDetail .section .title{
     display: flex;
@@ -59,4 +61,22 @@
 
 .indexDetail  .banner_pic{
     margin-top: .3rem;
+}
+.indexDetail  .DetailFooter{
+    width: 100vw;
+    background: #fff;
+    height: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+ 
+}
+.indexDetail  .DetailFooter span{
+    background-color: #f90;
+    line-height: 1rem;
+    padding:0 .2rem;
 }

@@ -13,39 +13,28 @@ class CateDetail extends Component {
         super()
         this.state = {
             showAdd: false,
-            info: null
+            info: null,
+            index:0
         }
     }
     componentDidMount() {
         const json = querystring.parse(this.props.location.search.slice(1))
         this.props.requestCateGoods(json)
     }
-    add(id, e) {
-        if (e.target.innerText === '立即抢购') {
-            requestIndexDetail({ id: id }).then((res) => {
-                console.log('aa' + res.list);
-            })
-            this.setState({
-                showAdd: true
-            })
-        } else {
-            this.setState({
-                showAdd: false
-            })
-        }
-
+    add(id) {
+        this.props.history.push('/indexDetail/:'+id)
     }
     render() {
         return (
             <div className="CateDetail">
                 <div className="top">
-                    <ComponentTitle title='电视'></ComponentTitle>
+                    <ComponentTitle title='电视' back></ComponentTitle>
                 </div>
                 <div className="section">
                     <ul>
                         {
                             this.props.cateGoods.length ? (
-                                this.props.cateGoods.map((item) => {
+                                this.props.cateGoods.map((item,index) => {
                                     return (
                                         <li key={item.id}>
                                             <div className="left">
@@ -65,13 +54,13 @@ class CateDetail extends Component {
                     </ul>
 
                 </div>
-                <div className="add">
+                {/* <div className="add">
                     {
                         this.state.showAdd ? (
                             <Add onEdit={this.add.bind(this)}></Add>
                         ) : null
                     }
-                </div>
+                </div> */}
             </div>
         )
     }

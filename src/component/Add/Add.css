@@ -1,4 +1,4 @@
-.Add{
+/* .Add{
     position: absolute;
     top: 0;
     left: 0;
@@ -9,7 +9,10 @@
     
 }
 .Add .section{
+    padding: 0 .2rem;
+    padding-top: .2rem;
     display: flex;
+    background: #fff;
   
 }
 .Add .section img{
@@ -29,7 +32,6 @@
 .Add .bot_top{
     opacity: .5;
     background-color: black;
-    /* background-color: rgba(0, 0, 0, .3); */
     width: 100vw;
     height:7.5rem;
 }
@@ -41,9 +43,8 @@
     z-index: 2;
 }
 .Add .bot .bot_bot h3{
-    width: 100vw;
     line-height: .4rem;
-    padding: .2rem;
+    padding:.2rem;
 }
 .Add .bot .bot_bot .span{
     width: 100vw;
@@ -63,4 +64,4 @@
     border-radius: .1rem;
    margin-left: 2rem;
    margin-top: .2rem;
-}
+} */

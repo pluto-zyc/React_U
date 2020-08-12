@@ -11,7 +11,7 @@ import cate_nor from '../../assets/img/tab_menu_nor.png'
 import shop_hig from '../../assets/img/tab_shopping_hig.png'
 import shop_nor from '../../assets/img/tab_shopping_nor.png'
 // 出口路由
-import {NavLink,Switch, Route,Redirect} from 'react-router-dom'
+import { NavLink, Switch, Route, Redirect } from 'react-router-dom'
 // 底部导航组件
 import Home from '../Home/Home'
 import Cate from '../Cate/Cate'
@@ -19,10 +19,42 @@ import Shop from '../Shop/Shop'
 import Mine from '../Mine/Mine'
 
 export default class index extends Component {
-    select(e,index) {
-       
+    constructor() {
+        super()
+        this.state = {
+            footer: [
+                {
+                    text: '首页',
+                    pic_hig: home_hig,
+                    pic_nor: home_nor,
+                    path:'/index/home'
+                },
+                {
+                    text: '分类',
+                    pic_hig: cate_hig,
+                    pic_nor: cate_nor,
+                    path:'/index/cate'
+                },
+                {
+                    text: '购物车',
+                    pic_hig: shop_hig,
+                    pic_nor: shop_nor,
+                    path:'/index/shop'
+                },
+                {
+                    text: '我的',
+                    pic_hig: mine_hig,
+                    pic_nor: mine_nor,
+                    path:'/index/mine'
+                }
+            ]
+        }
+    }
+    select(e, index) {
+
     }
     render() {
+        const {pathname} = this.props.location
         return (
             <div className='Index'>
                 <Switch>
@@ -32,22 +64,18 @@ export default class index extends Component {
                     <Route path='/index/mine' component={Mine}></Route>
                 </Switch>
                 <footer>
-                    <div onClick={(e)=>this.select(e,index)}>
-                        <img ref='pic1' src={home_nor} alt="" />
-                        <NavLink activeClassName='select' to="/index/home">首页</NavLink>
-                    </div>
-                    <div onClick={this.select.bind(this,index)}>
-                        <img ref='pic2' src={cate_nor} alt="" />
-                        <NavLink activeClassName='select' to="/index/cate">分类</NavLink>
-                    </div>
-                    <div onClick={this.select.bind(this,index)}>
-                        <img ref='pic3' src={shop_nor} alt="" />
-                        <NavLink activeClassName='select' to="/index/shop">购物车</NavLink>
-                    </div>
-                    <div onClick={this.select.bind(this,index)}>
-                        <img ref='pic4' src={mine_nor} alt="" />
-                        <NavLink activeClassName='select' to="/index/mine">我的</NavLink>
-                    </div>
+                    {
+                        this.state.footer.map((item) => {
+                            return (
+                                <div key={item.text} onClick={(e) => this.select(e, index)}>
+                                    <img src={
+                                        pathname===item.path?item.pic_hig:item.pic_nor
+                                    } alt="" />
+                            <NavLink activeClassName='select' to={item.path}>{item.text}</NavLink>
+                                </div>
+                            )
+                        })
+                    }
                 </footer>
             </div>
         )

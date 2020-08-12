@@ -3,6 +3,7 @@ import './Add.css'
 import jifen from '../../assets/img/jifen.png'
 import {withRouter} from 'react-router-dom'
 function Add(props) {
+
     return (
         <div className="Add">
             <div className="top"></div>

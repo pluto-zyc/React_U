@@ -21,11 +21,11 @@
 } */
 .Cate .section{
     overflow: hidden;
+    padding-top: .8rem;
+    padding-bottom: 2.5rem;
 }
 .Cate .section .left{
     float: left;
-    height: 100vh;
-    /* background-color: lightblue; */
 }
 .Cate .section .left li{
     margin-top: 0rem;
@@ -35,18 +35,11 @@
     text-align: center;
    
 }
-.Cate .section .left li span{}
-
 .Cate .section .right{
     float: left;
-    height: 100vh;
-    width: 4.9rem;
-    /* background-color: red; */
- 
-    
+    width: 4.9rem;   
 }
 .Cate .section .right li{
-    /* display: inline-block; */
     position: relative;
     float: left;
     margin-left: .2rem;  

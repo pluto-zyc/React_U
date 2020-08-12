@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 import { requestLogin } from '../../util/request'
+import Alert from '../../util/Alert'
 export default class Login extends Component {
     constructor() {
         super()
         this.state = {
+            showAlert:false,
             user: {
                 phone: 123,
                 password: 123,
@@ -15,12 +17,36 @@ export default class Login extends Component {
     componentDidMount() {
         
     }
+    reg(){
+        this.props.history.push('/reg')
+    }
     login(){
         requestLogin(this.state.user).then((res)=>{
-            sessionStorage.setItem('uid',res.data.list.uid)
-            sessionStorage.setItem('name',res.data.list.nickname)
+            
             if(res.data.code===200){
-                this.props.history.push('/index/home')
+                sessionStorage.setItem('uid',res.data.list.uid)
+               sessionStorage.setItem('name',res.data.list.nickname)
+               sessionStorage.setItem('user',JSON.stringify(res.data.list))
+                this.info = '登录成功'
+                    this.setState({
+                        showAlert:true
+                    })
+                    this.timer = setTimeout(()=>{
+                        this.setState({
+                            showAlert:true
+                        })
+                        this.props.history.push('/index/home')
+                    },1000)   
+            }else{
+                this.info='登录失败'
+                this.setState({
+                    showAlert:true
+                })
+                this.timer = setTimeout(()=>{
+                    this.setState({
+                        showAlert:false
+                    })
+                },1000)
             }
         })
     }
@@ -37,7 +63,7 @@ export default class Login extends Component {
             <div className="Login">
                 <div className="top">
                     <span>登录</span>
-                    <b>注册</b>
+                    <b onClick={this.reg.bind(this)}>注册</b>
                 </div>
                 <div className="info">
                     <div className='text'>
@@ -55,8 +81,9 @@ export default class Login extends Component {
                         <button onClick={this.login.bind(this)}>登录</button>
                     </div>
                 </div>
-
-
+                {
+                    this.state.showAlert?<Alert info={this.info}></Alert>:null
+                }
             </div>
         )
     }

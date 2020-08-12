@@ -2,6 +2,7 @@
     position: absolute;
     top: 0;
     left: 0;
+    height: 100%;
     
 }
 
@@ -31,7 +32,7 @@
     background-color: black;
     /* background-color: rgba(0, 0, 0, .3); */
     width: 100vw;
-    height:7.5rem;
+    height:6.2rem;
 }
 
 .IndexDetail_shop .bot .bot_bot{

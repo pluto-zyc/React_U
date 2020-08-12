@@ -22,6 +22,7 @@
 .Info .bot .ul{}
 .Info .bot .ul li{
     display: flex;
+    padding: .1rem 0;
 }
 .Info .bot .ul li b{
     display: inline-block;

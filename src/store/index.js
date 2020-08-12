@@ -29,6 +29,7 @@ const changeCateTreesAction = (arr) => {
 const changeCateGoodsAction = (arr) => {
     return { type: "changeCateGoods", list: arr }  
 }
+
 export const changeGoodsChecked=(index,val)=>{
     return {
         type:"changChecked",
@@ -124,10 +125,20 @@ export const requestShopAction = (json) => {
         // }
         //发请求
         requestShopList(json).then(res => {
-            const list=res.data.list?res.data.list:[]
-            list.forEach((item) => {
-                item.checked = false
-            })
+            const { shops } = getState()
+            // const list = []
+            // if(!shops){
+            //     list=res.data.list?res.data.list:[]
+            //     list.forEach((item) => {
+            //         item.checked = false
+            //     })
+            // }else{
+            //     list:shops
+            // }
+           const list=res.data.list?res.data.list:[]
+                list.forEach((item) => {
+                    item.checked = false
+                })
             dispatch(changeShopsAction(list))
         })
     }
@@ -162,7 +173,6 @@ const reducer = (state = initState, action) => {
             }
         case "changeShop":
             //{type:"changeShop",list:[]}
-           
             return {
                 ...state,
                 shops: action.list
@@ -183,11 +193,11 @@ const reducer = (state = initState, action) => {
             shops[action.index].checked=action.val;
             return {
                 ...state,
-                shops,
+                shops:[...shops],
                 isAllChecked:shops.every(item=>item.checked)
             }
         case "changeAllChecked":
-            console.log(action);
+          
             shops.forEach(item=>{
                 item.checked=action.val
             })
@@ -197,6 +207,12 @@ const reducer = (state = initState, action) => {
                 shops
             }
         case "changeShopNum":
+            // let oldShops = [...state.shops]
+            // let newShops = 
+            // state.shops.filter((item,index)=>{
+            //     return item.checked?item
+               
+            // })
             return {
                 ...state,
                 shopAdd:action.list,
@@ -214,4 +230,17 @@ export const cateTrees = (state) => state.cateTrees
 export const cateGoods = (state) => state.cateGoods
 export const isAllChecked = (state) => state.isAllChecked
 export const shopAdd = (state) => state.shopAdd
+export const allPrice = (state) => {
+    const list = state.shops
+     return list.reduce((val,item)=>{
+        if(item.checked){
+            val+=item.price*item.num
+            console.log(item.price);
+            console.log(item.num);
+            return  val    
+        }else {
+            return val
+        }
+     },0)
+}
 export default store

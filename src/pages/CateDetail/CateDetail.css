@@ -1,6 +1,7 @@
 .CateDetail{}
 .CateDetail .section{
     padding: .2rem;
+    padding-top: .8rem;
 }
 .CateDetail .section ul{}
 .CateDetail .section ul li{

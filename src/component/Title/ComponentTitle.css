@@ -5,15 +5,20 @@
     color: #fff;
     display: flex;
     justify-content: stretch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
 
 }
 .ComponentTitle span{
     line-height: .8rem;
     margin-left: .2rem;
+    position: absolute;
 }
 .ComponentTitle b{
     font-weight: normal;
     line-height: .8rem;
-    margin-left: 2.2rem;
+   margin: 0 auto;
 }
 

@@ -5,7 +5,17 @@ export default function IndexDetail_shop(props) {
 
    const shop =  props.shop
    const specsattr = JSON.parse(shop.specsattr)
-   
+   const addClass = (index,e)=>{
+      var arr = [...e.target.parentNode.children]
+      arr.forEach((item,i)=>{
+        if(index!=i){
+            item.className = ''
+        }else{
+            item.className= 'select'
+        }
+      })
+        
+   }
     return (
         <div className="IndexDetail_shop">
             <div className="top"></div>
@@ -25,9 +35,9 @@ export default function IndexDetail_shop(props) {
                    <div className='span'>
                        {
                            shop?(
-                            specsattr.map((item)=>{
+                            specsattr.map((item,index)=>{
                         return(
-                            <span key={item}>{item}</span>
+                            <span onClick={addClass.bind(this,index)} key={item}>{item}</span>
                             )
                             })
                            ):null

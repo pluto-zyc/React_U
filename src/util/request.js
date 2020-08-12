@@ -1,13 +1,31 @@
 import axios from 'axios'
 import qs from 'qs'
+//请求拦截
+axios.interceptors.request.use(config => {
+    if (config.url != '/api/login') {
+        var user = JSON.parse(sessionStorage.getItem('user'))
+        config.headers.authorization = user.token;
+    }
+    return config
+})
 axios.interceptors.response.use((res)=>{
     console.log(res.config.url);
     console.log(res);
+    if(res.data.msg==="登录已过期或访问权限受限"){
+         window.open('/login','_self')
+        return;
+    }
     return res
 })
 // 登录请求
 export const requestLogin = (json)=>axios({
     url:'/api/login',
+    method:'post',
+    data:qs.stringify(json)
+})
+// 注册请求
+export const requestReg = (json)=>axios({
+    url:'/api/register',
     method:'post',
     data:qs.stringify(json)
 })

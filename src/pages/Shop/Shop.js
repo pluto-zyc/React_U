@@ -5,7 +5,7 @@ import jifen from '../../assets/img/jifen.png'
 import Del from '../../component/Del/Del'
 import './Shop.css'
 import { connect } from "react-redux"
-import { shops, requestShopAction,changeGoodsChecked,isAllChecked,changeAllChecked,requestShopAddAction,shopAdd} from '../../store/index'
+import { shops, requestShopAction, changeGoodsChecked, isAllChecked, changeAllChecked, requestShopAddAction, shopAdd,allPrice} from '../../store/index'
 import { filterPrice } from '../../filters/Filters'
 import shop_none from "../../assets/img/tab_shopping_nor.png"
 import { requestShopDel } from '../../util/request'
@@ -19,17 +19,17 @@ class Shop extends Component {
             isCheck: false,//编辑选中
             checkedShop: [],//商品选中
             id: 0,//删除请求参数
-            allCheck:false,
-            shopNum:0
+            allCheck: false,
+            shopNum: 0
         }
     }
     componentDidMount() {
         const id = sessionStorage.getItem('uid')
-        const uid = {
+         this.uid = {
             uid: id
         }
         // 请求列表
-        this.props.requestShops(uid)
+        this.props.requestShops(this.uid)
     }
     // 点击了取消
     showDel_cancel() {
@@ -65,18 +65,20 @@ class Shop extends Component {
     // 点击-号
     red(id) {
         let addId = {
-            id:id,
-            type:1
+            id: id,
+            type: 1
         }
         this.props.changeShopAdd(addId)
+        this.props.requestShops(this.uid)
     }
-    //  添加num个数
-    add(id) { 
-       let addId = {
-            id:id,
-            type:2
+    // + 添加num个数
+    add(id) {
+        let addId = {
+            id: id,
+            type: 2
         }
         this.props.changeShopAdd(addId)
+        this.props.requestShops(this.uid)
     }
     // 点击删除
     del(id) {
@@ -86,8 +88,8 @@ class Shop extends Component {
         })
     }
     // 点击勾选商品
-    changeShopCheck(index,e){
-       this.props.addCheckAction(index,e.target.checked)
+    changeShopCheck(index, e) {
+        this.props.addCheckAction(index, e.target.checked)
     }
     onChange() { }
     // 展示删除按钮
@@ -110,27 +112,23 @@ class Shop extends Component {
         }
     }
     //点击了全选
-    changeAllChecked(e){
+    changeAllChecked(e) {
         this.props.changeAllChecked(e.target.checked)
     }
     render() {
-        let {isAllChecked,shops}=this.props
-        let a = 0
-        shops.forEach((i)=>{
-            // shopNum += 
-            a += i.price*i.num 
-        })
-
+        let { isAllChecked, shops } = this.props
         return (
             <div className="Shop">
+                
                 {/* 头部导航 */}
                 <div>
                     <ComponentTitle title="购物车"></ComponentTitle>
                 </div>
                 {/* 主体部分  ul */}
+                <div className="wrapOne">
                 {
                     shops.length > 0 ? (
-                        shops.map((item,index) => {
+                        shops.map((item, index) => {
                             return (
                                 <div key={item.id} className='wrap'>
                                     <div className="top" key={item.id}>
@@ -142,18 +140,18 @@ class Shop extends Component {
                                         {/* 左边  选中 图片 */}
                                         <div className='left_top'>
                                             <div className="left">
-                                                <input checked={item.checked} onChange={this.changeShopCheck.bind(this,index)} type="checkbox" />
+                                                <input checked={item.checked} onChange={this.changeShopCheck.bind(this, index)} type="checkbox" />
                                                 <img src={item.img} alt="" />
                                             </div>
                                             {/* 中间价格 */}
                                             <div className="center ">
                                                 <h4>{item.goodsname}</h4>
                                                 <div className="button">
-                                                    <span onClick={this.red.bind(this,item.id)}> - </span>
+                                                    <span onClick={this.red.bind(this, item.id)}> - </span>
                                                     <span> {item.num} </span>
-                                                    <span onClick={this.add.bind(this,item.id)}> + </span>
+                                                    <span onClick={this.add.bind(this, item.id)}> + </span>
                                                 </div>
-                                                <b>总价：{filterPrice(item.price * item.num)}</b>
+                                                <b>总价：￥{filterPrice(item.price * item.num)}</b>
                                             </div>
                                             <div className="right">
                                                 ￥{filterPrice(item.price)}
@@ -166,14 +164,14 @@ class Shop extends Component {
                                     </div>
                                     <div className="bottom">
                                         <div className="all">
-                                            <input type="checkbox" checked={isAllChecked} onChange={(e)=>this.changeAllChecked(e)} />
+                                            <input type="checkbox" checked={isAllChecked} onChange={(e) => this.changeAllChecked(e)} />
                                             <span>全选</span>
                                         </div>
                                         <div className="update" onClick={this.addClassName.bind(this)} >
                                             <input type="checkbox" onChange={this.onChange.bind(this)} checked={this.state.isCheck} />
                                             <span >编辑</span>
                                         </div>
-                                        <div className="num">总价：{a}</div>
+                                        <div className="num">总价：￥{this.props.allPrice?this.props.allPrice:0}</div>
                                         <div className="sum">
                                             去结算
                         </div>
@@ -198,6 +196,7 @@ class Shop extends Component {
                         <Del onCancel={this.showDel_cancel.bind(this)} id={this.state.id} onSure={(e) => { this.showDel_sure(e) }} ></Del>
                     ) : null
                 }
+                </div>
             </div>
         )
     }
@@ -208,7 +207,8 @@ const mapStateToProps = (state) => {
     return {
         shops: shops(state),
         isAllChecked: isAllChecked(state),
-        shopAdd: shopAdd(state)
+        shopAdd: shopAdd(state),
+        allPrice: allPrice(state)
     }
 }
 const mapDispatchToProps = dispatch => {
@@ -216,10 +216,10 @@ const mapDispatchToProps = dispatch => {
         // 购物车列表
         requestShops: (uid) => dispatch(requestShopAction(uid)),
         // 选中
-        addCheckAction: (index,val) => dispatch( changeGoodsChecked(index,val)),
-        changeAllChecked:val=>dispatch(changeAllChecked(val)),
+        addCheckAction: (index, val) => dispatch(changeGoodsChecked(index, val)),
+        changeAllChecked: val => dispatch(changeAllChecked(val)),
         // 购物车加号
-        changeShopAdd:addId=>dispatch(requestShopAddAction(addId))
+        changeShopAdd: addId => dispatch(requestShopAddAction(addId))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Shop)
